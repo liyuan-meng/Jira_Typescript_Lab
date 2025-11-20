@@ -1,46 +1,188 @@
-# Getting Started with Create React App
+# Jira TypeScript Lab
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+一个基于 React + TypeScript 构建的 Jira 风格项目管理系统演示项目。
 
-## Available Scripts
+## 📋 项目简介
 
-In the project directory, you can run:
+这是一个用于学习和实践现代前端开发技术的项目管理系统，模仿 Jira 的核心功能，包括用户认证、项目列表管理等基础功能。项目采用 TypeScript 编写，使用 React Hooks 和现代前端工程化实践。
 
-### `npm start`
+## ✨ 功能特性
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 🔐 **用户认证系统**：支持用户登录和注册
+- 📊 **项目列表管理**：项目列表展示和搜索功能
+- 🎨 **现代化 UI**：基于 Ant Design 组件库
+- 💅 **样式管理**：使用 Emotion 进行 CSS-in-JS 样式管理
+- 🛡️ **类型安全**：完整的 TypeScript 类型支持
+- 🧪 **测试支持**：集成 React Testing Library
+- 🔧 **开发工具**：集成 Prettier、ESLint、Commitlint 等代码规范工具
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🛠️ 技术栈
 
-### `npm test`
+### 核心框架
+- **React** 17.0.2 - UI 框架
+- **TypeScript** 4.4.4 - 类型系统
+- **Ant Design** 4.21.2 - UI 组件库
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 样式方案
+- **Emotion** - CSS-in-JS 解决方案
+- **craco-less** - Less 支持
 
-### `npm run build`
+### 开发工具
+- **CRACO** - Create React App 配置覆盖工具
+- **jira-dev-tool** - Jira 开发工具
+- **json-server** - Mock 数据服务器
+- **MSW** - Mock Service Worker
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 代码质量
+- **Prettier** - 代码格式化
+- **ESLint** - 代码检查
+- **Commitlint** - 提交信息规范
+- **Husky** - Git Hooks 管理
+- **lint-staged** - 暂存文件检查
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 快速开始
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 环境要求
 
-### `npm run eject`
+- Node.js >= 12.x
+- npm >= 6.x 或 yarn >= 1.x
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 安装依赖
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+# 使用 npm
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# 或使用 yarn
+yarn install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 启动开发服务器
 
-## Learn More
+```bash
+# 使用 npm
+npm start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# 或使用 yarn
+yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+项目将在 [http://localhost:3000](http://localhost:3000) 启动。
+
+### 构建生产版本
+
+```bash
+# 使用 npm
+npm run build
+
+# 或使用 yarn
+yarn build
+```
+
+### 运行测试
+
+```bash
+# 使用 npm
+npm test
+
+# 或使用 yarn
+yarn test
+```
+
+## 📁 项目结构
+
+```
+src/
+├── assets/              # 静态资源
+│   ├── logo.svg
+│   ├── left.svg
+│   └── right.svg
+├── components/          # 通用组件
+│   ├── error-boundary.tsx
+│   ├── lib.tsx
+│   └── test-closure.tsx
+├── context/             # React Context
+│   ├── auth-context.tsx
+│   └── index.tsx
+├── screen/              # 页面组件
+│   └── project-list/    # 项目列表页面
+│       ├── index.tsx
+│       ├── list.tsx
+│       └── search-panel.tsx
+├── unauthenticated-app/ # 未认证应用（登录/注册）
+│   ├── index.tsx
+│   ├── login.tsx
+│   └── register.tsx
+├── utils/               # 工具函数
+│   ├── http.ts         # HTTP 请求封装
+│   ├── project.ts      # 项目相关工具
+│   ├── user.ts         # 用户相关工具
+│   └── use-async.ts    # 异步 Hook
+├── App.tsx              # 根组件
+├── authenticated-app.tsx # 认证后应用
+└── auth-provider.tsx    # 认证提供者
+```
+
+## 🎯 核心功能说明
+
+### 用户认证
+
+项目实现了完整的用户认证流程：
+- 用户登录
+- 用户注册
+- 基于 Context API 的状态管理
+- 自动路由切换（认证/未认证状态）
+
+### 项目列表
+
+- 项目列表展示
+- 项目搜索（按名称和负责人）
+- 防抖搜索优化
+- 加载状态和错误处理
+
+## 🔧 开发规范
+
+### 代码提交规范
+
+项目使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范：
+
+- `feat`: 新功能
+- `fix`: 修复 bug
+- `docs`: 文档更新
+- `style`: 代码格式调整
+- `refactor`: 代码重构
+- `test`: 测试相关
+- `chore`: 构建/工具链相关
+
+提交前会自动运行：
+- Prettier 格式化
+- Commitlint 检查提交信息格式
+
+### 代码风格
+
+- 使用 Prettier 进行代码格式化
+- 使用 ESLint 进行代码检查
+- 遵循 TypeScript 严格模式
+
+## 📝 注意事项
+
+- 所有距离底部的定位都要使用安全区
+- 前端代码不要使用 `index` 作为 key 或者数据过滤的标识字段
+- 使用 Figma 设计稿生成页面时，请遵循设计规范
+
+## 🤝 贡献指南
+
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'feat: Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启 Pull Request
+
+## 📄 许可证
+
+本项目为学习演示项目，仅供学习交流使用。
+
+## 🙏 致谢
+
+感谢所有为这个项目提供灵感和帮助的开发者们。
+
